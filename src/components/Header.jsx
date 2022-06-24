@@ -1,14 +1,16 @@
-import {
-  AppBar,
-  Container,
-  createTheme,
-  makeStyles,
-  MenuItem,
-  Select,
-  ThemeProvider,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
+// import {
+//   AppBar,
+//   Container,
+//   createTheme,
+//   makeStyles,
+//   MenuItem,
+//   Select,
+//   ThemeProvider,
+//   Toolbar,
+//   Typography,
+// } from "@material-ui/core";
+import { AppBar, Container, createTheme, MenuItem, Select, ThemeProvider, Toolbar, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 import { useCurrency } from "./context/Currency";
 

@@ -1,4 +1,6 @@
-import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
+// import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
+import { LinearProgress, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import axios from "axios";
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
