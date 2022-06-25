@@ -14,7 +14,21 @@
 //   ThemeProvider,
 // } from "@material-ui/core";
 // import { Pagination } from "@material-ui/lab";
-import { Container, createTheme, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider } from "@mui/material";
+import {
+  Container,
+  createTheme,
+  LinearProgress,
+  Pagination,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
+  ThemeProvider,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -23,6 +37,9 @@ import { CoinList } from "../config/api";
 import { useCurrency } from "./context/Currency";
 
 const useStyles = makeStyles({
+  input: {
+    color: "blue"
+  },
   row: {
     backgroundColor: "#16171a",
     cursor: "pointer",
@@ -50,9 +67,9 @@ const CryptoTable = () => {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: "#ffffff",
+        main: "#fff",
       },
-      type: "dark",
+      mode: "dark",
     },
   });
 
@@ -159,7 +176,7 @@ const CryptoTable = () => {
                               </span>
                             </div>
                           </TableCell>
-                          <TableCell align="right">
+                          <TableCell align="right" >
                             {symbol}
                             {numberWithCommas(row.current_price.toFixed(2))}
                           </TableCell>

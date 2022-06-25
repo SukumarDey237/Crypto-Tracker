@@ -90,7 +90,7 @@ const CoinInfo = ({ coin }) => {
       primary: {
         main: "#fff",
       },
-      type: "dark",
+      mode: "dark",
     },
   });
 

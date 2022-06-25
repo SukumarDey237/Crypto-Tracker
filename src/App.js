@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@mui/styles";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";

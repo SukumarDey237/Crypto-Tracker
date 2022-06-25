@@ -5,12 +5,24 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CurrencyProvider } from "./components/context/Currency";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { ThemeProvider } from "@mui/styles";
+import { createTheme } from "@mui/system";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const darkTheme = createTheme({
+  palette: {
+    primary: {
+      main: "#fff",
+    },
+    mode: "dark",
+  },
+});
 root.render(
   <React.StrictMode>
     <CurrencyProvider>
+      <ThemeProvider theme={darkTheme}>
       <App />
+      </ThemeProvider>
     </CurrencyProvider>
   </React.StrictMode>
 );

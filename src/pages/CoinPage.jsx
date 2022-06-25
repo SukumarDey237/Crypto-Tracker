@@ -1,5 +1,8 @@
 // import { LinearProgress, makeStyles, Typography } from "@material-ui/core";
-import { LinearProgress, Typography } from "@mui/material";
+import {
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import axios from "axios";
 import parse from "html-react-parser";
@@ -19,15 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
   sidebar: {
     width: "30%",
-    [theme.breakpoints.down("md")]: {
-      width: "100%",
-    },
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     marginTop: 25,
     marginBottom: 25,
     borderRight: "2px solid grey",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
   },
   heading: {
     fontWeight: 800,
@@ -76,67 +79,68 @@ const CoinPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
   const classes = useStyles();
 
   if (!coin) return <LinearProgress style={{ backgroundColor: "#EEBC1D" }} />;
 
   return (
-    <div className={classes.container}>
-      <div className={classes.sidebar}>
-        <img
-          src={coin?.image.large}
-          alt={coin.name}
-          height="200"
-          style={{ marginBottom: 20 }}
-        />
-        <Typography variant="h3" className={classes.heading}>
-          {coin?.name}
-        </Typography>
-        <Typography variant="subtitle1" className={classes.description}>
-          {parse(coin?.description.en.split(". ")[0])}.
-        </Typography>
-        <div className={classes.marketData}>
-          <span style={{ display: "flex" }}>
-            <Typography variant="h5" className={classes.heading}>
-              Rank:
-            </Typography>
-            &nbsp; &nbsp;
-            <Typography variant="h5">
-              {numberWithCommas(coin?.market_cap_rank)}
-            </Typography>
-          </span>
+      <div className={classes.container}>
+        <div className={classes.sidebar}>
+          <img
+            src={coin?.image.large}
+            alt={coin.name}
+            height="200"
+            style={{ marginBottom: 20 }}
+          />
+          <Typography variant="h3" className={classes.heading}>
+            {coin?.name}
+          </Typography>
+          <Typography variant="subtitle1" className={classes.description}>
+            {parse(coin?.description.en.split(". ")[0])}.
+          </Typography>
+          <div className={classes.marketData}>
+            <span style={{ display: "flex" }}>
+              <Typography variant="h5" className={classes.heading}>
+                Rank:
+              </Typography>
+              &nbsp; &nbsp;
+              <Typography variant="h5">
+                {numberWithCommas(coin?.market_cap_rank)}
+              </Typography>
+            </span>
 
-          <span style={{ display: "flex" }}>
-            <Typography variant="h5" className={classes.heading}>
-              Current Price:
-            </Typography>
-            &nbsp; &nbsp;
-            <Typography variant="h5">
-              {symbol}{" "}
-              {numberWithCommas(
-                coin?.market_data.current_price[currency.toLowerCase()]
-              )}
-            </Typography>
-          </span>
-          <span style={{ display: "flex" }}>
-            <Typography variant="h5" className={classes.heading}>
-              Market Cap:
-            </Typography>
-            &nbsp; &nbsp;
-            <Typography variant="h5">
-              {symbol}{" "}
-              {numberWithCommas(
-                coin?.market_data.market_cap[currency.toLowerCase()]
-                  .toString()
-                  .slice(0, -6)
-              )}
-              M
-            </Typography>
-          </span>
+            <span style={{ display: "flex" }}>
+              <Typography variant="h5" className={classes.heading}>
+                Current Price:
+              </Typography>
+              &nbsp; &nbsp;
+              <Typography variant="h5">
+                {symbol}{" "}
+                {numberWithCommas(
+                  coin?.market_data.current_price[currency.toLowerCase()]
+                )}
+              </Typography>
+            </span>
+            <span style={{ display: "flex" }}>
+              <Typography variant="h5" className={classes.heading}>
+                Market Cap:
+              </Typography>
+              &nbsp; &nbsp;
+              <Typography variant="h5">
+                {symbol}{" "}
+                {numberWithCommas(
+                  coin?.market_data.market_cap[currency.toLowerCase()]
+                    .toString()
+                    .slice(0, -6)
+                )}
+                M
+              </Typography>
+            </span>
+          </div>
         </div>
+        <CoinInfo coin={coin} />
       </div>
-      <CoinInfo coin={coin} />
-    </div>
   );
 };
 

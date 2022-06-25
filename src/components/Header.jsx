@@ -32,7 +32,7 @@ const Header = () => {
       primary: {
         main: "#ffffff",
       },
-      type: "dark",
+      mode: "dark",
     },
   });
 
